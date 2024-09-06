@@ -32,7 +32,7 @@ In addition to the UserOp execution pathway, Omni Account supports the following
 ### Tech Stack + Core Data Structures
 
 - **ZKP**: Currently, we are using the fastest zkVM, [sp1](https://github.com/succinctlabs/sp1), as an initial implementation of the ZKP circuit logic. In the future, we plan to migrate to a more specialized ZK language for better performance.
-- **Frontend**: We start from create-react-app typescript template and build the entire project.
+- **Frontend**: Built from a TypeScript template using Create React App, enhanced with Chakra UI for UI components, Ethers.js for blockchain interactions.
 - **Backend**:
 - **Smart Contracts**:
 
