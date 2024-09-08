@@ -33,8 +33,11 @@ In addition to the UserOp execution pathway, Omni Account supports the following
 
 - **ZKP**: Currently, we are using the fastest zkVM, [sp1](https://github.com/succinctlabs/sp1), as an initial implementation of the ZKP circuit logic. In the future, we plan to migrate to a more specialized ZK language for better performance.
 - **Frontend**: Built from a TypeScript template using Create React App, enhanced with Chakra UI for UI components, Ethers.js for blockchain interactions.
-- **Backend**:
-- **Smart Contracts**:
+- **Backend**: This Go-based implementation serves as a basic EIP-4337 bundler, responsible for bundling user operations and interacting with L1 and ZKP systems. It handles the aggregation and submission of transactions while ensuring secure and efficient communication with the underlying layers.
+- **Smart Contracts**: Our smart contracts are developed by extending an open-source contract library. We have streamlined the original implementation by removing unnecessary business modules, replaced the original deposit module, and added new cross-chain functionality using LayerZeroV2 and zk verification modules.
+
+### LayerZero for Cross-Chain Communication
+ With gas balance and nonce managed off-chain, the Bundler need to sync the verified ZKP proof output across different chains. We utilize LayerZero as the cross-chain protocol due to its stability and permissionless nature. This ensures reliable, decentralized cross-chain operations, allowing seamless interactions across multiple blockchains.
 
 ### SMT Data Structure
 Our Sparse Merkle Tree (SMT) implementation is inspired by this article: [A Hacker’s Guide to Layer 2 Zero Merkle Trees](https://medium.com/@carterfeldman/a-hackers-guide-to-layer-2-zero-merkle-trees-from-scratch-d612ea846016). However, we will later improve it with a more efficient SMT that requires fewer hash operations and uses a more ZK-friendly hashing algorithm.
